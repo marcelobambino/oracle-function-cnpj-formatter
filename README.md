@@ -4,7 +4,7 @@ Simple function that format CNPJ using RegExp.
 
 # How to use
 
-Run the CNPJ_FORMATTER.sql file to create the function
+Run the CNPJ_FORMATTER.sql file to create the function on your database.
 
 Then you can test with the command below:
 
