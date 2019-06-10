@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION "CNPJ_FORMATTER"
+ (CNPJ IN NUMBER)
+ RETURN       		VARCHAR2 IS
+ FORMATTED_CNPJ      VARCHAR2(18); 
+BEGIN
+   SELECT DECODE(CNPJ,
+                 NULL,
+                 '00.000.000/0000-00',
+                 REGEXP_REPLACE(LPAD(CNPJ, 14, '0'), '([0-9]{2})([0-9]{3})([0-9]{3})([0-9]{4})([0-9]{2})','\1.\2.\3/\4-\5'))
+     INTO FORMATTED_CNPJ
+     FROM DUAL;
+   RETURN FORMATTED_CNPJ;
+END;
